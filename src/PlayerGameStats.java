@@ -21,6 +21,10 @@ public class PlayerGameStats {
         this.player = player;
     }
 
+    public Player getPlayer(){
+        return player;
+    }
+
     public int getPoints() {
         return points;
     }
@@ -55,7 +59,7 @@ public class PlayerGameStats {
         return turnovers;
     }
 
-    public void addTurnovers(int turnoversToAdd) {
+    public void addTurnover(int turnoversToAdd) {
         if (turnoversToAdd > 0) {
             this.turnovers += turnoversToAdd;
         }
