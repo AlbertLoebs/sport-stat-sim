@@ -31,4 +31,28 @@ public class Game {
 
     }
 
+    public void simGame() {
+        boolean homePossession = true; // start with home team
+        int totalPossessions = 200;    // around the avg amount of poss in an nba game
+
+        for (int i = 0; i < totalPossessions; i++) {
+            if (homePossession) {
+               PlayerGameStats player = selectRandomPlayer(homePlayerStats);
+
+            } else {
+
+            }
+
+            // Switch possession for next loop
+            homePossession = !homePossession;
+        }
+
+    }
+
+    // this method can be used to get a random player for stats like pts, reb, asst,
+    // turn ...
+    public PlayerGameStats selectRandomPlayer(List<PlayerGameStats> teamStats) {
+        return teamStats.get(rand.nextInt(teamStats.size()));
+    }
+
 }
