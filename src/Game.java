@@ -36,17 +36,50 @@ public class Game {
         int totalPossessions = 200; // around the avg amount of poss in an nba game
 
         for (int i = 0; i < totalPossessions; i++) {
-            if (homePossession) {
-                PlayerGameStats player = selectRandomPlayer(homePlayerStats);
 
+            List<PlayerGameStats> offenseStats = homePossession ? homePlayerStats : awayPlayerStats;
+            List<PlayerGameStats> defenseStats = homePossession ? awayPlayerStats : homePlayerStats;
+
+            PlayerGameStats shooter = selectRandomPlayer(offenseStats);
+
+            int points = simPlayerShot(shooter); // sim shot
+
+            if (points > 0) {
+                // Update TEAM score
+                if (homePossession) {
+                    homeScore += points;
+                } else {
+                    awayScore += points;
+                }
             } else {
-
+                // Shot missed → rebound chance
+                PlayerGameStats rebounder = simRebound(defenseStats);
+                if (rebounder == null) {
+                    // Nobody on defense got it, try offense
+                    rebounder = simRebound(offenseStats);
+                    if (rebounder != null) {
+                        // Offensive rebound = same team keeps possession
+                        i--; // don’t count this as a full possession
+                        continue;
+                    }
+                }
             }
 
-            // Switch possession for next loop
+            // Switch possession if no offensive rebound
             homePossession = !homePossession;
         }
 
+        System.out.println("Final Score: Home " + homeScore + " - Away " + awayScore);
+
+        System.out.println("\nHome Team Box Score:");
+        for (PlayerGameStats p : homePlayerStats) {
+            System.out.println(p);
+        }
+
+        System.out.println("\nAway Team Box Score:");
+        for (PlayerGameStats p : awayPlayerStats) {
+            System.out.println(p);
+        }
     }
 
     // this method can be used to get a random player for stats like pts, reb, asst
@@ -54,7 +87,7 @@ public class Game {
         return teamStats.get(rand.nextInt(teamStats.size()));
     }
 
-    public boolean simPlayerShot(PlayerGameStats playerStats) {
+    public int simPlayerShot(PlayerGameStats playerStats) {
         boolean isThreePointer = rand.nextInt(100) < 30;
 
         int playerShotRating = playerStats.getPlayer().getShooting();
@@ -75,8 +108,9 @@ public class Game {
             if (isThreePointer) {
                 playerStats.addThreePointerMade(1);
             }
+            return pointsScored;
         }
-        return madeShot;
+        return 0;
     }
 
     public PlayerGameStats simRebound(List<PlayerGameStats> teamStats) {

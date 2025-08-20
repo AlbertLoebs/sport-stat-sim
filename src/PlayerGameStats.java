@@ -179,4 +179,12 @@ public class PlayerGameStats {
         }
     }
 
+    @Override
+    public String toString() {
+        return player.getFirstName() + " " + player.getLastName() + " - PTS: " + points +
+               " | FGM/FGA: " + fieldGoalsMade + "/" + fieldGoalsAttempted +
+               " | 3PM/3PA: " + threePointerMade + "/" + threePointerAttempted +
+               " | REB: " + rebounds;
+    }
 }
+
