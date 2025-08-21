@@ -182,9 +182,10 @@ public class PlayerGameStats {
     @Override
     public String toString() {
         return player.getFirstName() + " " + player.getLastName() + " - PTS: " + points +
+                " | REB: " + rebounds + " | AST: " + assists +
                " | FGM/FGA: " + fieldGoalsMade + "/" + fieldGoalsAttempted +
                " | 3PM/3PA: " + threePointerMade + "/" + threePointerAttempted +
-               " | REB: " + rebounds;
+               " | TURNOVERS: " + turnovers + " | STL: " + steals + " | BLK: " + blocks;
     }
 }
 

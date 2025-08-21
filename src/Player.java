@@ -29,7 +29,7 @@ public class Player {
         switch (position) {
             case "G":
             case "PG":
-                player.shooting = 65 + rand.nextInt(36);
+                player.shooting = 44 + rand.nextInt(57);
                 player.defense = 70 + rand.nextInt(31);
                 player.passing = 75 + rand.nextInt(26);
                 player.rebounding = 20 + rand.nextInt(81);
@@ -37,11 +37,11 @@ public class Player {
                 player.stamina = 75 + rand.nextInt(26);
                 player.strength = 50 + rand.nextInt(51);
                 player.ballHandle = 75 + rand.nextInt(26);
-                player.block = 50 + rand.nextInt(51);
+                player.block = 30 + rand.nextInt(71);
                 break;
 
             case "SG":
-                player.shooting = 75 + rand.nextInt(26);
+                player.shooting = 44 + rand.nextInt(57);
                 player.defense = 65 + rand.nextInt(36);
                 player.passing = 60 + rand.nextInt(41);
                 player.rebounding = 40 + rand.nextInt(61);
@@ -49,12 +49,12 @@ public class Player {
                 player.stamina = 70 + rand.nextInt(31);
                 player.strength = 55 + rand.nextInt(56);
                 player.ballHandle = 70 + rand.nextInt(31);
-                player.block = 55 + rand.nextInt(46);
+                player.block = 33 + rand.nextInt(68);
                 break;
 
             case "F":
             case "SF":
-                player.shooting = 65 + rand.nextInt(36);
+                player.shooting = 45 + rand.nextInt(56);
                 player.defense = 60 + rand.nextInt(41);
                 player.passing = 55 + rand.nextInt(46);
                 player.rebounding = 60 + rand.nextInt(41);
@@ -62,11 +62,11 @@ public class Player {
                 player.stamina = 60 + rand.nextInt(31);
                 player.strength = 60 + rand.nextInt(41);
                 player.ballHandle = 65 + rand.nextInt(36);
-                player.block = 60 + rand.nextInt(41);
+                player.block = 36 + rand.nextInt(65);
                 break;
 
             case "PF":
-                player.shooting = 55 + rand.nextInt(46);
+                player.shooting = 47 + rand.nextInt(54);
                 player.defense = 55 + rand.nextInt(46);
                 player.passing = 50 + rand.nextInt(51);
                 player.rebounding = 70 + rand.nextInt(31);
@@ -74,11 +74,11 @@ public class Player {
                 player.stamina = 55 + rand.nextInt(46);
                 player.strength = 70 + rand.nextInt(31);
                 player.ballHandle = 60 + rand.nextInt(41);
-                player.block = 65 + rand.nextInt(36);
+                player.block = 38 + rand.nextInt(63);
                 break;
 
             case "C":
-                player.shooting = 50 + rand.nextInt(51);
+                player.shooting = 48 + rand.nextInt(53);
                 player.defense = 50 + rand.nextInt(51);
                 player.passing = 45 + rand.nextInt(56);
                 player.rebounding = 75 + rand.nextInt(26);
@@ -86,7 +86,7 @@ public class Player {
                 player.stamina = 50 + rand.nextInt(51);
                 player.strength = 75 + rand.nextInt(26);
                 player.ballHandle = 55 + rand.nextInt(46);
-                player.block = 70 + rand.nextInt(31);
+                player.block = 40 + rand.nextInt(61);
                 break;
 
             default:

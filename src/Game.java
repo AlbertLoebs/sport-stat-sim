@@ -40,9 +40,27 @@ public class Game {
             List<PlayerGameStats> offenseStats = homePossession ? homePlayerStats : awayPlayerStats;
             List<PlayerGameStats> defenseStats = homePossession ? awayPlayerStats : homePlayerStats;
 
-            PlayerGameStats shooter = selectRandomPlayer(offenseStats);
+            // --- 12% turnover chance ---
+            if (Math.random() < 0.12) {
+                // Turnover
+                PlayerGameStats turnoverPlayer = selectRandomPlayer(offenseStats);
+                turnoverPlayer.addTurnover(1);
+                ;
 
-            int points = simPlayerShot(shooter); // sim shot
+                // 60% chance it’s a steal
+                if (Math.random() < 0.6) {
+                    PlayerGameStats stealer = selectRandomPlayer(defenseStats);
+                    stealer.addSteals(1);
+                }
+
+                homePossession = !homePossession;
+                continue;
+            }
+
+            PlayerGameStats shooter = selectRandomPlayer(offenseStats);
+            PlayerGameStats defender = selectRandomPlayer(defenseStats);
+
+            int points = simPlayerShot(shooter, defender); // sim shot
 
             if (points > 0) {
                 // Update TEAM score
@@ -50,6 +68,13 @@ public class Game {
                     homeScore += points;
                 } else {
                     awayScore += points;
+                }
+
+                if (Math.random() < 0.70) { // 70% of made shots are assisted
+                    PlayerGameStats assister = selectRandomPlayer(offenseStats);
+                    if (assister != shooter) {
+                        assister.addAssists(1);
+                    }
                 }
             } else {
                 // Shot missed → rebound chance
@@ -87,30 +112,43 @@ public class Game {
         return teamStats.get(rand.nextInt(teamStats.size()));
     }
 
-    public int simPlayerShot(PlayerGameStats playerStats) {
+    public int simPlayerShot(PlayerGameStats shooter, PlayerGameStats defender) {
         boolean isThreePointer = rand.nextInt(100) < 30;
 
-        int playerShotRating = playerStats.getPlayer().getShooting();
+        int blockChance = rand.nextInt(100);
+
+        if (Math.random() < .20){ // 20% in a block
+        if (blockChance < defender.getPlayer().getBlock()) {
+            defender.addBlocks(1);
+            shooter.addFieldGoalsAttempted(1); // even if shot is blocked count as an attempt
+            if (isThreePointer) {
+                shooter.addThreePointerAttemped(1);
+            }
+            return 0; // blocked shot
+        }
+    }
+
+        int playerShotRating = shooter.getPlayer().getShooting();
         int roll = rand.nextInt(100);
 
         boolean madeShot = roll < playerShotRating;
 
-        playerStats.addFieldGoalsAttempted(1);
+        shooter.addFieldGoalsAttempted(1);
         if (isThreePointer) {
-            playerStats.addThreePointerAttemped(1);
+            shooter.addThreePointerAttemped(1);
         }
 
         if (madeShot) {
-            playerStats.addFieldGoalsMade(1);
+            shooter.addFieldGoalsMade(1);
             int pointsScored = isThreePointer ? 3 : 2;
-            playerStats.addPoints(pointsScored);
+            shooter.addPoints(pointsScored);
 
             if (isThreePointer) {
-                playerStats.addThreePointerMade(1);
+                shooter.addThreePointerMade(1);
             }
-            return pointsScored;
+            return pointsScored; // make
         }
-        return 0;
+        return 0; // miss
     }
 
     public PlayerGameStats simRebound(List<PlayerGameStats> teamStats) {
@@ -125,20 +163,6 @@ public class Game {
             return player;
         }
         return null;
-    }
-
-    public boolean simTurnover(List<PlayerGameStats> teamStats) {
-        PlayerGameStats player = selectRandomPlayer(teamStats);
-
-        int ballHandle = player.getPlayer().getBallHandle();
-
-        int roll = rand.nextInt(100);
-
-        boolean turnover = roll > ballHandle;
-        if (turnover) {
-            player.addTurnover(1);
-        }
-        return turnover;
     }
 
     public boolean simBlock(PlayerGameStats defender) {
