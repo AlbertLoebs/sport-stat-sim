@@ -54,6 +54,48 @@ public class TeamInit {
                 player.add(Player.genPlayerRating("Amari", "Williams", "77", "C"));
                 break;
 
+            case "Thunder":
+                player.add(Player.genPlayerRating("Brooks", "Barnhizer", "23", "F"));
+                player.add(Player.genPlayerRating("Branden", "Carlson", "15", "C"));
+                player.add(Player.genPlayerRating("Alex", "Caruso", "9", "SG"));
+                player.add(Player.genPlayerRating("Ousmane", "Dieng", "13", "F"));
+                player.add(Player.genPlayerRating("Luguentz", "Dort", "5", "G"));
+                player.add(Player.genPlayerRating("Shai", "Gilgeous-Alexander", "2", "PG"));
+                player.add(Player.genPlayerRating("Isaiah", "Hartenstein", "55", "C"));
+                player.add(Player.genPlayerRating("Chet", "Holmgren", "7", "PF"));
+                player.add(Player.genPlayerRating("Isaiah", "Joe", "11", "SG"));
+                player.add(Player.genPlayerRating("Ajay", "Mitchell", "25", "G"));
+                player.add(Player.genPlayerRating("Thomas", "Sorber", "12", "C"));
+                player.add(Player.genPlayerRating("Nikola", "Topic", "44", "G"));
+                player.add(Player.genPlayerRating("Cason", "Wallace", "22", "G"));
+                player.add(Player.genPlayerRating("Aaron", "Wiggins", "21", "SG"));
+                player.add(Player.genPlayerRating("Jalen", "Williams", "8", "F"));
+                player.add(Player.genPlayerRating("Jaylin", "Williams", "6", "F"));
+                player.add(Player.genPlayerRating("Kenrich", "Williams", "34", "SF"));
+                break;
+
+            case "Pacers":
+                player.add(Player.genPlayerRating("Tony", "Bradley", "13", "C"));
+                player.add(Player.genPlayerRating("RayJ", "Dennis", "10", "G"));
+                player.add(Player.genPlayerRating("Johnny", "Furphy", "12", "F"));
+                player.add(Player.genPlayerRating("Tyrese", "Haliburton", "0", "PG"));
+                player.add(Player.genPlayerRating("Jay", "Huff", "-", "C"));
+                player.add(Player.genPlayerRating("Isaiah", "Jackson", "22", "SF"));
+                player.add(Player.genPlayerRating("Quenton", "Jackson", "29", "G"));
+                player.add(Player.genPlayerRating("Kam", "Jones", "-", "G"));
+                player.add(Player.genPlayerRating("Bennedict", "Mathurin", "00", "SG"));
+                player.add(Player.genPlayerRating("T.J.", "McConnell", "9", "PG"));
+                player.add(Player.genPlayerRating("Andrew", "Nembhard", "2", "PG"));
+                player.add(Player.genPlayerRating("Aaron", "Nesmith", "23", "SF"));
+                player.add(Player.genPlayerRating("Taelon", "Peter", "-", "G"));
+                player.add(Player.genPlayerRating("Ben", "Sheppard", "26", "G"));
+                player.add(Player.genPlayerRating("Pascal", "Siakam", "43", "PF"));
+                player.add(Player.genPlayerRating("Obi", "Toppin", "1", "PF"));
+                player.add(Player.genPlayerRating("Jarace", "Walker", "5", "F"));
+                player.add(Player.genPlayerRating("James", "Wiseman", "-", "C"));
+
+                break;
+
             default:
                 System.out.println("Unknown team");
                 break;
@@ -66,8 +108,10 @@ public class TeamInit {
         List<Team> teams = new ArrayList<>();
         teams.add(new Team("Los Angeles", "Lakers", createPlayers("Lakers")));
         teams.add(new Team("Boston", "Celtics", createPlayers("Celtics")));
+        teams.add(new Team("Oklahoma City", "Thunder", createPlayers("Thunder")));
+        teams.add(new Team("Indiana", "Pacers", createPlayers("Pacers")));
 
-        for (int i = 0; i < teams.size(); i++){
+        for (int i = 0; i < teams.size(); i++) {
             System.out.print(teams.get(i));
         }
 
