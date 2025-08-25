@@ -24,11 +24,32 @@ public class League {
     }
 
     public void playSeason() {
-
+        for (Game game : schedule) {
+            game.simGame();
+            recordResult(game);
+        }
     }
 
-    public void recordResult() {
+    public void recordResult(Game game) {
+        Team home = game.getHomeTeam();
+        Team away = game.getAwayTeam();
 
+        int homeScore = game.getHomeScore();
+        int awayScore = game.getAwayScore();
+
+        home.addPoints(homeScore);
+        home.addPointsAllowed(awayScore);
+
+        away.addPoints(awayScore);
+        away.addPointsAllowed(homeScore);
+
+        if (homeScore > awayScore) {
+            home.addWin();
+            away.addLoss();
+        } else {
+            away.addWin();
+            home.addLoss();
+        }
     }
 
     public void printStandings() {

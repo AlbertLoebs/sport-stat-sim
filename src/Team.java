@@ -4,6 +4,10 @@ public class Team {
     private String name;
     private String city;
     private List<Player> players;
+    private int wins;
+    private int losses;
+    private int points;
+    private int pointsAllowed;
 
     public Team(String city, String name, List<Player> players){
         this.city = city;
@@ -13,6 +17,30 @@ public class Team {
 
     public List<Player> getPlayers(){
         return players;
+    }
+
+    public void addWin(){
+        wins++;
+    }
+
+    public void addLoss(){
+        losses++;
+    }
+
+    public void addPoints(int point){
+        points += point;
+    }
+
+    public void addPointsAllowed(int point){
+        pointsAllowed += point;
+    }
+
+    public int getPoints(){
+        return points;
+    }
+
+    public int getPointsAllowed(){
+        return pointsAllowed;
     }
 
     @Override

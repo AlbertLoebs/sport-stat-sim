@@ -187,4 +187,20 @@ public class Game {
         return stolen;
     }
 
+    public int getHomeScore(){
+        return homeScore;
+    }
+
+    public int getAwayScore(){
+        return awayScore;
+    }
+
+    public Team getHomeTeam(){
+        return homeTeam;
+    }
+
+    public Team getAwayTeam(){
+        return awayTeam;
+    }
+
 }
