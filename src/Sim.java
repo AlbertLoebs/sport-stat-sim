@@ -4,6 +4,7 @@ public class Sim {
     public static void main(String[] args) {
         List<Team> teams = TeamInit.createTeams();
 
+        /*  single game sims
         Team home1 = teams.get(0);
         Team away1 = teams.get(1);
 
@@ -14,6 +15,12 @@ public class Sim {
         Game g2 = new Game(home2, away2);
         g1.simGame();
         g2.simGame();
-        
+        */
+
+        League league = new League(teams);
+        league.makeSchedule(teams);
+        league.playSeason();
+        league.printStandings();
+
     }
 }

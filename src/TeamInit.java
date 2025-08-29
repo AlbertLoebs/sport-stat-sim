@@ -93,7 +93,6 @@ public class TeamInit {
                 player.add(Player.genPlayerRating("Obi", "Toppin", "1", "PF"));
                 player.add(Player.genPlayerRating("Jarace", "Walker", "5", "F"));
                 player.add(Player.genPlayerRating("James", "Wiseman", "-", "C"));
-
                 break;
 
             default:
@@ -106,10 +105,10 @@ public class TeamInit {
 
     public static List<Team> createTeams() {
         List<Team> teams = new ArrayList<>();
-        teams.add(new Team("Los Angeles", "Lakers", createPlayers("Lakers")));
-        teams.add(new Team("Boston", "Celtics", createPlayers("Celtics")));
-        teams.add(new Team("Oklahoma City", "Thunder", createPlayers("Thunder")));
-        teams.add(new Team("Indiana", "Pacers", createPlayers("Pacers")));
+        teams.add(new Team("Los Angeles", "Lakers", "Western", createPlayers("Lakers")));
+        teams.add(new Team("Boston", "Celtics", "Eastern", createPlayers("Celtics")));
+        teams.add(new Team("Oklahoma City", "Thunder", "Western", createPlayers("Thunder")));
+        teams.add(new Team("Indiana", "Pacers", "Eastern", createPlayers("Pacers")));
 
         for (int i = 0; i < teams.size(); i++) {
             System.out.print(teams.get(i));

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -8,6 +9,7 @@ public class League {
 
     public League(List<Team> teams) {
         this.teams = teams;
+        this.schedule = new ArrayList<>();
     }
 
     public List<Game> makeSchedule(List<Team> teams) {
@@ -53,7 +55,14 @@ public class League {
     }
 
     public void printStandings() {
+        System.out.println("===== League Standings =====");
+        System.out.println("Team\tW\tL\t");
 
+        for (Team team : teams) {
+            System.out.println(
+                    team.getName() + "\t" +
+                    team.getWins() + "\t" +
+                    team.getLosses() + "\t");
+        }
     }
-
 }

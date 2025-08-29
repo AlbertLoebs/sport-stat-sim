@@ -14,6 +14,10 @@ public class Game {
     Game(Team homeTeam, Team awayTeam) {
         // setting each score to zero
         // each player on away and home get arr with stats
+
+        this.homeTeam = homeTeam;
+        this.awayTeam = awayTeam;
+
         homeScore = 0;
         awayScore = 0;
 
