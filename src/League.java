@@ -56,13 +56,13 @@ public class League {
 
     public void printStandings() {
         System.out.println("===== League Standings =====");
-        System.out.println("Team\tW\tL\t");
+        System.out.println("Team\t\t\tW\t\t\tL\t");
 
         for (Team team : teams) {
             System.out.println(
-                    team.getName() + "\t" +
-                    team.getWins() + "\t" +
-                    team.getLosses() + "\t");
+                    team.getName() + "\t\t\t" +
+                    team.getWins() + "\t\t\t" +
+                    team.getLosses() + "\t\t\t");
         }
     }
 }
