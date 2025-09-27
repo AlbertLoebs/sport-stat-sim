@@ -179,6 +179,7 @@ public class PlayerGameStats {
         }
     }
 
+    /* 
     @Override
     public String toString() {
         return player.getFirstName() + " " + player.getLastName() + " - PTS: " + points +
@@ -187,5 +188,6 @@ public class PlayerGameStats {
                " | 3PM/3PA: " + threePointerMade + "/" + threePointerAttempted +
                " | TURNOVERS: " + turnovers + " | STL: " + steals + " | BLK: " + blocks;
     }
+               */
 }
 

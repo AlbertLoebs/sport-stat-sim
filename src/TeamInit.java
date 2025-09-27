@@ -307,7 +307,7 @@ public class TeamInit {
                 player.add(Player.genPlayerRating("Bogdan", "Bogdanović", "10", "SG"));
                 player.add(Player.genPlayerRating("Kobe", "Brown", "21", "G"));
                 player.add(Player.genPlayerRating("Cam", "Christie", "12", "G"));
-                player.add(Player.genPlayerRating("John", "Collins", "", "F-C"));
+                player.add(Player.genPlayerRating("John", "Collins", "", "C"));
                 player.add(Player.genPlayerRating("Kris", "Dunn", "8", "G"));
                 player.add(Player.genPlayerRating("Trentyn", "Flowers", "9", "G"));
                 player.add(Player.genPlayerRating("James", "Harden", "1", "SG"));
@@ -635,10 +635,11 @@ public class TeamInit {
         teams.add(new Team("Utah", "Jazz", "Western", createPlayers("Jazz")));
         teams.add(new Team("Atlanta", "Hawks", "Eastern", createPlayers("Hawks")));
 
+        /*/
         for (int i = 0; i < teams.size(); i++) {
             System.out.print(teams.get(i));
         }
-
+*/
         return teams;
     }
 }

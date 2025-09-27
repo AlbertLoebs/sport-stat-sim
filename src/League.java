@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class League {
     private List<Team> teams;
@@ -13,6 +14,7 @@ public class League {
     }
 
     public List<Game> makeSchedule(List<Team> teams) {
+        // this makes everyone play eachother twice at least
         for (int i = 0; i < teams.size(); i++) {
             for (int j = i + 1; j < teams.size(); j++) {
                 Team home = teams.get(i);
@@ -22,6 +24,7 @@ public class League {
                 schedule.add(new Game(away, home)); // j is home
             }
         }
+
         return schedule;
     }
 
@@ -56,13 +59,13 @@ public class League {
 
     public void printStandings() {
         System.out.println("===== League Standings =====");
-        System.out.println("Team\t\t\tW\t\t\tL\t");
+        System.out.printf("%-20s %5s %5s%n", "Team", "W", "L");
 
         for (Team team : teams) {
-            System.out.println(
-                    team.getName() + "\t\t\t" +
-                    team.getWins() + "\t\t\t" +
-                    team.getLosses() + "\t\t\t");
+            System.out.printf("%-20s %5d %5d%n",
+                    team.getName(),
+                    team.getWins(),
+                    team.getLosses());
         }
     }
 }

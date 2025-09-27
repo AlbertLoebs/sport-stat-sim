@@ -90,7 +90,9 @@ public class Player {
                 break;
 
             default:
-                System.err.println("Could not create player");
+                System.err.printf(
+                        "Could not create player: %s %s (position='%s')%n",
+                        firstName, lastName, position);
         }
         return player;
     }
@@ -139,23 +141,26 @@ public class Player {
         return strength;
     }
 
-    public int getBallHandle(){
+    public int getBallHandle() {
         return ballHandle;
     }
 
-    public int getBlock(){
+    public int getBlock() {
         return block;
     }
 
-    @Override
-    public String toString() {
-        return firstName + " " + lastName + " #" + jerseyNumber + " (" + position + ") " +
-           "Shooting: " + shooting +
-           ", Defense: " + defense +
-           ", Passing: " + passing +
-           ", Rebounding: " + rebounding +
-           ", Speed: " + speed +
-           ", Stamina: " + stamina +
-           ", Strength: " + strength;
-    }
+    /*
+     * @Override
+     * public String toString() {
+     * return firstName + " " + lastName + " #" + jerseyNumber + " (" + position +
+     * ") " +
+     * "Shooting: " + shooting +
+     * ", Defense: " + defense +
+     * ", Passing: " + passing +
+     * ", Rebounding: " + rebounding +
+     * ", Speed: " + speed +
+     * ", Stamina: " + stamina +
+     * ", Strength: " + strength;
+     * }
+     */
 }

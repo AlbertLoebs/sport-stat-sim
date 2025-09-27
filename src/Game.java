@@ -98,17 +98,17 @@ public class Game {
             homePossession = !homePossession;
         }
 
-        System.out.println("Final Score: Home " + homeScore + " - Away " + awayScore);
+        //System.out.println("Final Score: Home " + homeScore + " - Away " + awayScore);
 
-        System.out.println("\nHome Team Box Score:");
-        for (PlayerGameStats p : homePlayerStats) {
-            System.out.println(p);
-        }
+    // System.out.println("\nHome Team Box Score:");
+    // for (PlayerGameStats p : homePlayerStats) {
+    //     System.out.println(p);
+    // }
 
-        System.out.println("\nAway Team Box Score:");
-        for (PlayerGameStats p : awayPlayerStats) {
-            System.out.println(p);
-        }
+    // System.out.println("\nAway Team Box Score:");
+    // for (PlayerGameStats p : awayPlayerStats) {
+    //     System.out.println(p);
+    // }
     }
 
     // this method can be used to get a random player for stats like pts, reb, asst
