@@ -1,18 +1,25 @@
 # Ignore everything by default
 *
 
-# Allow .gitignore itself
+# Always keep .gitignore
 !.gitignore
 
-# Allow the src folder
+# Allow source files
 !src/
-
-# Only track Java source files inside src
 !src/**/*.java
+
+# Allow docker setup
+!docker/
+!docker/**
+
+# Allow Kafka libs
+!libs/
+!libs/**
 
 # Ignore compiled class files
 *.class
 bin/
+out/
 
 # Ignore IDE folders
 .vscode/
