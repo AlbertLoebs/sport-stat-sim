@@ -21,6 +21,7 @@ public class Sim {
         league.makeSchedule(teams);
         league.playSeason();
         league.printStandings();
+        league.closeProducer();
 
     }
 }
